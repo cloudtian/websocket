@@ -1,7 +1,9 @@
 let express = require('express');
 let app = express();
 let conversion = require('./conversition');
-require('express-ws')(app)
+let opn = require('opn');
+let address = require('address');
+require('express-ws')(app);
 
 let port = 9090;
 
@@ -12,8 +14,8 @@ app.get('/', (req, res) => {
 app.use(express.static('static'))
 app.listen(port, () => console.log(`Example app listening on port ${port}`));
 
-app.ws('/message', function (ws) {
-    ws.on('open', function () {
+app.ws('/message', function (ws, req) {
+    ws.on('open', function (e) {
         console.log('[server]连接成功');
     });
     ws.on('error', function () {
@@ -32,3 +34,5 @@ app.ws('/message', function (ws) {
     });
 });
 
+// 自动打开浏览器
+opn(`http://${address.ip()}:${port}`);
