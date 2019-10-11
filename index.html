@@ -1,0 +1,55 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>websocket</title>
+        <style>
+            .content {
+                border: 1px solid #ddd;
+                margin: 10px 0;
+                width: 400px;
+                padding: 10px;
+                border-radius: 5px;
+                min-height: 100px;
+            }
+            .content ul {
+                list-style: none;
+                padding-left: 0;
+            }
+            .content ul li {
+                line-height: 2;
+            }
+            .content ul li span {
+                padding: 4px;
+                border-radius: 5px;
+                border: 1px solid transparent;
+            }
+            .content ul li:nth-child(odd) {
+                text-align: right;
+            }
+            .content ul li:nth-child(odd) span {
+                background-color: #8ef362de;
+            }
+            .content ul li:nth-child(even) {
+                text-align: left;
+            }
+            .content ul li:nth-child(even) span {
+                background-color: #d5dcd2de;
+            }
+            .tip {
+                font-size: 12px;
+                color: #ddd;
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <button class="connect">进入聊天室</button>
+        <button class="close">退出聊天室</button>
+        <input type="textarea" class="msg">
+        <button class="btn">提交</button>
+        <div class="content">
+        </div>
+        
+        <script src="client.js"></script>
+    </body>
+</html>
