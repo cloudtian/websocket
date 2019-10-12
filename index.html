@@ -13,10 +13,11 @@
             }
             .content ul {
                 list-style: none;
-                padding-left: 0;
+                padding: 0 7px;
             }
             .content ul li {
                 line-height: 2;
+                position: relative;
             }
             .content ul li span {
                 padding: 4px;
@@ -26,11 +27,34 @@
             .content ul li:nth-child(odd) {
                 text-align: right;
             }
+            .content ul li:nth-child(odd)::after {
+                content: '';
+                width: 0;
+                height: 0;
+                position: absolute;
+                top: 15%;
+                border: 6px solid #8ef362de;
+                border-top-color: transparent;
+                border-bottom-color: transparent;
+                border-right-color: transparent;
+            }
             .content ul li:nth-child(odd) span {
                 background-color: #8ef362de;
             }
             .content ul li:nth-child(even) {
                 text-align: left;
+            }
+            .content ul li:nth-child(even)::before {
+                content: '';
+                width: 0;
+                height: 0;
+                position: absolute;
+                top: 15%;
+                left: -12px;
+                border: 6px solid #d5dcd2de;
+                border-top-color: transparent;
+                border-bottom-color: transparent;
+                border-left-color: transparent;
             }
             .content ul li:nth-child(even) span {
                 background-color: #d5dcd2de;

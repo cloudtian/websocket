@@ -43,14 +43,14 @@ $close.onclick = function () {
 }
 
 $btn.onclick = function () {
-    let message = $msg.value;
-    if (!message) {
-        alert('请输入内容后再提交！');
+    if (!Socket || Socket.readyState !== 1) {
+        alert('请先进入聊天室！');
         return;
     }
 
-    if (!Socket || Socket.readyState !== 1) {
-        alert('未正常连接，请稍后重试！');
+    let message = $msg.value;
+    if (!message) {
+        alert('请输入内容后再提交！');
         return;
     }
 
