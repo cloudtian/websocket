@@ -1,0 +1,105 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>多人会话聊天室</title>
+        <style>
+            .box-wrap {
+                display: flex;
+                align-content: space-between;
+            }
+            .box {
+                border: 1px solid #ddd;
+                margin: 10px 0;
+                padding: 10px;
+                border-radius: 5px;
+                min-height: 100px;
+            }
+            .content {
+                flex: 60%;
+            }
+            .info {
+                flex: 0 0 230px;
+                margin-left: 10px;
+            }
+            .content ul {
+                list-style: none;
+                padding: 0 7px;
+            }
+            .content ul li {
+                line-height: 2;
+                position: relative;
+            }
+            .content .text {
+                padding: 4px;
+                border-radius: 5px;
+                border: 1px solid transparent;
+            }
+            .content .own {
+                text-align: right;
+            }
+            .content .own::after {
+                content: '';
+                width: 0;
+                height: 0;
+                position: absolute;
+                top: 15%;
+                border: 6px solid #8ef362de;
+                border-top-color: transparent;
+                border-bottom-color: transparent;
+                border-right-color: transparent;
+            }
+            .content .own .text {
+                background-color: #8ef362de;
+            }
+            .content .msg:not(.own) {
+                text-align: left;
+                margin-top: 15px;
+            }
+            .content .msg:not(.own)::before {
+                content: '';
+                width: 0;
+                height: 0;
+                position: absolute;
+                top: 15%;
+                left: -12px;
+                border: 6px solid #d5dcd2de;
+                border-top-color: transparent;
+                border-bottom-color: transparent;
+                border-left-color: transparent;
+            }
+            .content .msg:not(.own) .text {
+                background-color: #d5dcd2de;
+            }
+            .content .msg:not(.own) .name {
+                position: absolute;
+                color: #ddd;
+                top: -22px;
+                font-size: 12px;
+            }
+            .tip {
+                font-size: 12px;
+                color: #ddd;
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        请输入昵称：<input type="text" class="name"><br/><br/>
+        <button class="connect">进入聊天室</button>
+        <button class="close">退出聊天室</button><br/><br/>
+        请输入要说的话：<input type="text" class="msg">
+        <button class="btn">提交</button>
+        <div class="box-wrap">
+            <div class="box content">
+    
+            </div>
+            <div class="box info">
+                <span class="tip">当前在线人数：（进入聊天室后可看见）</span>
+                <span class="user-count"></span>
+            </div>
+        </div>
+        
+        
+        <script src="multi-client.js"></script>
+    </body>
+</html>
